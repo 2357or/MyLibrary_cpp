@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <utility>
+#include <cmath>
+using namespace std;
+using ll=long long; using ld=long double;
+
+struct Vector2{
+    ld x, y;
+    constexpr Vector2(ld X=0, ld Y=0):x(X),y(Y){}
+    ld sqrMagnitude(){return pow(x, 2)+pow(y, 2);}
+    ld magnitude(){return sqrt(sqrMagnitude());}
+    Vector2 Normalize() { return (*this)/magnitude(); }
+    string ToString(const char* fmt = "%Lf"){
+        char bufferX[std::numeric_limits<ld>::max_exponent10+1 +6 +3];
+        sprintf(bufferX, fmt, x); string bX = string(bufferX);
+        char bufferY[std::numeric_limits<ld>::max_exponent10+1 +6 +3];
+        sprintf(bufferY, fmt, y); string bY = string(bufferY);
+        return "(" + bX + ", " + bY + ")";
+    }
+    constexpr Vector2& operator+=(const Vector2& rhs){x+=rhs.x; y+=rhs.y; return *this;}
+    constexpr Vector2& operator-=(const Vector2& rhs){x-=rhs.x; y-=rhs.y; return *this;}
+    constexpr Vector2& operator*=(const ld& rhs){x*=rhs; y*=rhs; return *this;}
+    constexpr Vector2& operator/=(const ld& rhs){x/=rhs; y/=rhs; return *this;}
+    constexpr Vector2 operator*(const ld& rhs){return Vector2(*this)*=rhs;}
+    constexpr Vector2 operator+(const Vector2& rhs){return Vector2(*this)+=rhs;}
+    constexpr Vector2 operator-(const Vector2& rhs){return Vector2(*this)-=rhs;}
+    constexpr Vector2 operator-(){return Vector2(-x, -y);}
+    friend Vector2 operator*(const ld& lhs,const Vector2& rhs){return Vector2(rhs)*=lhs;}
+    friend Vector2 operator/(const Vector2& lhs,const ld& rhs){return Vector2(lhs)/=rhs;}
+    constexpr bool operator==(const Vector2 rhs){
+        return (this->x == rhs.x) && (this->y == rhs.y);
+    }
+    constexpr bool operator!=(const Vector2 rhs){
+        return (this->x != rhs.x) && (this->y != rhs.y);
+    }
+    constexpr ld operator[](const int& i){
+        switch(i){
+            case 0: return x; case 1: return y;
+            default: return numeric_limits<ld>::quiet_NaN();
+        }
+    }
+    friend ostream& operator<<(ostream& os,const Vector2& v)noexcept{
+        return os<<v.x<<' '<<v.y;
+    }
+    friend constexpr istream& operator>>(istream& is,Vector2& v)noexcept{
+        return is>>v.x>>v.y;
+    }
+};
+
+
+ld Distance(Vector2& a, Vector2& b){
+    return sqrt(powl(a.x-b.x, 2)+powl(a.y-b.y, 2));
+}
+ld Dot(Vector2& a, Vector2& b){
+    return (a.x*b.x)+(a.y*b.y);
+}
+
+
+int main(){
+    Vector2 a, b; cin >> a >> b;
+    cout << "Distance: " << Distance(a, b) << endl;
+    cout << "Dot: " << Dot(a, b) << endl;
+    return 0;
+}
+

@@ -1,0 +1,9 @@
+template<class T>string convertBaseNumber(T n, const int to){
+    string res = "";
+  	while(n){
+        int t = n%to; n /= to;
+        res += t + (t<10 ? 48 : 87);
+    }
+    reverse(res.begin(), res.end());
+    return res;
+}

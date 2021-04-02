@@ -1,0 +1,8 @@
+string RunLength_decode(const vector<pair<char, int>>& p){
+    string res = "";
+    for(auto x : p){
+        int c = x.first, len = x.second;
+        rep(_, 0, len) res += c;
+    }
+    return res;
+}

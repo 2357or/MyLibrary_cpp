@@ -1,0 +1,6 @@
+ld Distance(Vector2& a, Vector2& b){
+    return sqrt(powl(a.x-b.x, 2)+powl(a.y-b.y, 2));
+}
+ld Dot(Vector2& a, Vector2& b){
+    return (a.x*b.x)+(a.y*b.y);
+}

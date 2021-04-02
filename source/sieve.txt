@@ -1,0 +1,43 @@
+struct PrimeSieve{
+    int size;
+    vector<int> sieve, primes;
+    PrimeSieve(int n) : size(n), sieve(n+1){
+        sieve[0] = sieve[1] = -1;
+        primes.push_back(2);
+        for(int i = 2; i <= n; i += 2) sieve[i] = 2;
+        for(ll i = 3; i <= n; i += 2){
+            if(sieve[i]) continue;
+            primes.push_back(i); sieve[i] = i;
+            for(ll j = i*i; j <= n; j += i) if (!sieve[j]) sieve[j] = i;
+      	}
+    }
+    bool isPrime(int x){ return sieve[x] == x; }
+    vector<int> factorize(int x){
+    	vector<int> res;
+        while(x != 1){
+            res.push_back(sieve[x]);
+            x /= sieve[x];
+        }
+        return res;
+    }
+    int divisorCount(int x){
+    	int cnt = 1, res = 1;
+    	while(x != 1){
+    	    int b = sieve[x]; x /= sieve[x];
+    	    int p = sieve[x];
+    	    if(b == p) cnt++;
+    	    else{ res *= (cnt+1); cnt = 1; }
+        } res *= cnt;
+    	return res;
+    }
+    vector<int> divisors(int x){
+        auto fac = factorize(x); vector<int> res = {1};
+        for(int& f : fac){
+            int size = res.size();
+            for(int i=0; i<size; i++) res.push_back(res[i]*f);
+        }
+        sort(res.begin(),res.end());
+        res.erase(unique(res.begin(),res.end()),res.end());
+        return res;
+    }
+};

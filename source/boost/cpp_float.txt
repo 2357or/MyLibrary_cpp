@@ -1,0 +1,3 @@
+#include <boost/multiprecision/cpp_dec_float.hpp>
+using Float = boost::multiprecision::cpp_dec_float_100;
+#define SETPRECISION_OUT(x) setprecision(numeric_limits<decltype(x)>::digits10+1)<<x

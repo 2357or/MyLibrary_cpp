@@ -1,0 +1,5 @@
+template<class T, class U>
+bool compare_by_second(const pair<T,U>& A, const pair<T,U>& B){
+    if(A.second != B.second) return A.second < B.second;
+    else return A.first < B.first;
+}
