@@ -1,6 +1,7 @@
 # MyLibrary_cpp
 - 競プロ用自作ライブラリ(for C++)
 - 使用テンプレート: [dotfiles/vim/Templates/source/cpp.txt](https://github.com/2357or/dotfiles/blob/master/vim/Templates/souce/cpp.txt)
+- [導入方法](Introduction.md)
 
 ## 数学
 | 名前            | コマンド              | ドキュメント                                             | サンプル                                                 |

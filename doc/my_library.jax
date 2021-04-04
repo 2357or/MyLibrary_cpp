@@ -1,0 +1,96 @@
+*my_library.txt*	日本語ヘルプ
+
+Version : 1.0
+Author  : R2357
+License : MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+目次						*my_library-contents*
+
+概要				|my_library-introduction|
+使い方				|my_library-usage|
+インターフェイス		|my_library-interface|
+  変数				  |my_library-variables|
+  コマンド			  |my_library-commands|
+  関数				  |my_library-functions|
+更新履歴			|my_library-changelog|
+
+
+==============================================================================
+概要						*my_library-introduction*
+
+*my_library* は競技プログラミング用の自作ライブラリです。
+カーソル下にライブラリを貼り付けます。
+実装されているライブラリは https://github.com/2357or/MyLibrary_cpp/blob/main/README.md を参照してください。
+
+またライブラリを追加したい場合は「ライブラリ名.txt」ファイルを作成し、その中に貼り付けたい内容を記述してください
+
+最新版:
+https://github.com/user/my_library.vim
+
+
+==============================================================================
+使い方						*my_library-usage*
+
+:Library + ライブラリ名(README.md参照)
+でカーソル下にライブラリを貼り付けます。
+
+
+==============================================================================
+インターフェイス				*my_library-interface*
+
+------------------------------------------------------------------------------
+変数						*my_library-variables*
+
+g:user_library_path				*g:user_library_path*
+	既定値: = "~"
+    追加したいライブラリファイルがあるディレクトリまでのパス(最後の'/'は無し)を設定してください。
+
+
+g:plugin_dir_path				*g:plugin_dir_path*
+	既定値: = "~/.vim/bundles/repos/github.com/2357or/MyLibrary_cpp"
+    基本的に必須です。
+    このプラグインが保存されているディレクトリまでのパスを設定してください。
+
+
+------------------------------------------------------------------------------
+コマンド					*my_library-commands*
+
+:Library {}					*:Library*
+    引数は文字列を1つ取れます。
+    引数にライブラリ名を入力すると、カーソル下にライブラリを貼り付けます。
+
+
+------------------------------------------------------------------------------
+関数						*my_library-functions*
+
+my_library#paste({name})			*my_library#paste()*
+    g:plugin_dir_pathに存在する「{name}.txt」の内容を貼り付けます。
+    そのファイルが存在しない場合はg:user_library_pathに存在する「{name}.txt」の内容を貼り付けます。
+    2つとも存在しない場合は関数は終了します。
+
+
+==============================================================================
+更新履歴					*my_library-changelog*
+2021/04/04 : ドキュメントの作成
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
