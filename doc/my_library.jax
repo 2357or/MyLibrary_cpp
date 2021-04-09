@@ -2,7 +2,7 @@
 
 Version : 1.0
 Author  : R2357
-License : MIT License (https://github.com/2357or/MyLibrary_cpp/blob/main/LICENSE)
+License : MIT License (https://github.com/ryota2357/MyLibrary_cpp/blob/main/LICENSE)
 
 ==============================================================================
 目次						*my_library-contents*
@@ -21,12 +21,12 @@ License : MIT License (https://github.com/2357or/MyLibrary_cpp/blob/main/LICENSE
 
 *my_library* は競技プログラミング用の自作ライブラリです。
 カーソル下にライブラリを貼り付けます。
-実装されているライブラリは https://github.com/2357or/MyLibrary_cpp/blob/main/README.md を参照してください。
+実装されているライブラリは https://github.com/ryota2357/MyLibrary_cpp/blob/main/README.md を参照してください。
 
 またライブラリを追加したい場合は「ライブラリ名.txt」ファイルを作成し、その中に貼り付けたい内容を記述してください
 
 最新版:
-https://github.com/user/my_library.vim
+https://github.com/ryota2357/MyLibrary_cpp
 
 
 ==============================================================================
